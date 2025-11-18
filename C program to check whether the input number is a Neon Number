@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int n; 
+    long sq; 
+    int sum = 0;
+    scanf("%d", &n);
+    sq = (long)n * n;
+    while (sq) {
+        sum += sq % 10;
+        sq /= 10;
+    }
+    if (sum == n) printf("%d is a Neon Number\n", n);
+    else printf("%d is NOT a Neon Number\n", n);
+    return 0;
+}
