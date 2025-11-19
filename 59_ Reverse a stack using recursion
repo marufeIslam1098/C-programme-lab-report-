@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 100
+
+int stack[MAX], top = -1;
+
+void push(int x){ if (top < MAX-1) stack[++top]=x; }
+int pop(){ return (top>=0) ? stack[top--] : -1; }
+int isEmpty(){ return top==-1; }
+
+void insertAtBottom(int x){
+    if (isEmpty()) { push(x); return; }
+    int y = pop();
+    insertAtBottom(x);
+    push(y);
+}
+
+void reverseStack(){
+    if (isEmpty()) return;
+    int x = pop();
+    reverseStack();
+    insertAtBottom(x);
+}
+
+int main(){
+    int n;
+    printf("How many elements? "); if (scanf("%d",&n)!=1) return 0;
+    printf("Enter elements (push order):\n");
+    for (int i=0;i<n;i++){ int v; scanf("%d",&v); push(v); }
+    reverseStack();
+    printf("Stack after reversing (top to bottom):\n");
+    while (!isEmpty()) printf("%d ", pop());
+    printf("\n");
+    return 0;
+}
