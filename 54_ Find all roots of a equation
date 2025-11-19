@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    double a,b,c;
+    printf("Enter a b c: "); if (scanf("%lf%lf%lf",&a,&b,&c)!=3) return 0;
+    if (a==0){
+        if (b==0) { printf("Not an equation\n"); return 0; }
+        printf("Linear root: %f\n", -c/b); return 0;
+    }
+    double disc = b*b - 4*a*c;
+    if (disc > 0){
+        double r1 = (-b + sqrt(disc)) / (2*a);
+        double r2 = (-b - sqrt(disc)) / (2*a);
+        printf("Two real roots: %f and %f\n", r1, r2);
+    } else if (disc == 0){
+        double r = -b / (2*a);
+        printf("One real root: %f\n", r);
+    } else {
+        double real = -b/(2*a), imag = sqrt(-disc)/(2*a);
+        printf("Complex roots: %f + %fi and %f - %fi\n", real, imag, real, imag);
+    }
+    return 0;
+}
