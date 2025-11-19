@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+    int n; printf("Enter half-height (n): "); scanf("%d",&n);
+    // upper (including middle)
+    for (int i=1;i<=n;i++){
+        for (int s=0;s<n-i;s++) putchar(' ');
+        for (int k=1;k<=2*i-1;k++){
+            if (k==1 || k==2*i-1) putchar('*'); else putchar(' ');
+        }
+        putchar('\n');
+    }
+    // lower
+    for (int i=n-1;i>=1;i--){
+        for (int s=0;s<n-i;s++) putchar(' ');
+        for (int k=1;k<=2*i-1;k++){
+            if (k==1 || k==2*i-1) putchar('*'); else putchar(' ');
+        }
+        putchar('\n');
+    }
+    return 0;
+}
