@@ -1,0 +1,11 @@
+#include <stdio.h>
+
+int main() {
+    int n; printf("Enter rows: "); scanf("%d",&n);
+    for (int i=1;i<=n;i++){
+        for (int s=0;s<i-1;s++) putchar(' ');
+        for (int k=0;k<2*(n-i+1)-1;k++) putchar('*');
+        putchar('\n');
+    }
+    return 0;
+}
