@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <math.h>
+
+double power(double base, int exp) {
+    if (exp == 0) return 1.0;
+    if (exp < 0) return 1.0 / power(base, -exp);
+    return base * power(base, exp - 1);
+}
+
+int main() {
+    double b;
+    int e;
+    printf("Enter base and exponent: ");
+    if (scanf("%lf %d", &b, &e) != 2) return 0;
+    printf("%.6g^%d = %.6g\n", b, e, power(b,e));
+    return 0;
+}
