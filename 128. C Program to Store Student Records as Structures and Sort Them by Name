@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Student s[3], temp;
+
+    for(int i=0; i<3; i++) {
+        printf("Name: ");
+        scanf("%s", s[i].name);
+        printf("Age: ");
+        scanf("%d", &s[i].age);
+    }
+
+    for(int i=0; i<3; i++)
+        for(int j=i+1; j<3; j++)
+            if(strcmp(s[i].name, s[j].name) > 0) {
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+
+    printf("\nSorted by name:\n");
+    for(int i=0; i<3; i++)
+        printf("%s %d\n", s[i].name, s[i].age);
+
+    return 0;
+}
