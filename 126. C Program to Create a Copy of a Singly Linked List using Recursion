@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node {
+    int data;
+    struct Node *next;
+};
+
+struct Node* copy(struct Node* head) {
+    if(head == NULL) return NULL;
+
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = head->data;
+    newNode->next = copy(head->next);
+    return newNode;
+}
+
+int main() {
+    struct Node *a = malloc(sizeof(struct Node));
+    struct Node *b = malloc(sizeof(struct Node));
+    struct Node *c = malloc(sizeof(struct Node));
+
+    a->data = 10; a->next = b;
+    b->data = 20; b->next = c;
+    c->data = 30; c->next = NULL;
+
+    struct Node *copyHead = copy(a);
+
+    while(copyHead) {
+        printf("%d ", copyHead->data);
+        copyHead = copyHead->next;
+    }
+
+    return 0;
+}
