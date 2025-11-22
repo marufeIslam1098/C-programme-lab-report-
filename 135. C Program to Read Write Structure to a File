@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+struct Info {
+    int id;
+    char name[20];
+};
+
+int main() {
+    struct Info a = {1, "Maruf"};
+    FILE *fp = fopen("info.dat", "wb");
+    fwrite(&a, sizeof(a), 1, fp);
+    fclose(fp);
+
+    struct Info b;
+    fp = fopen("info.dat", "rb");
+    fread(&b, sizeof(b), 1, fp);
+    fclose(fp);
+
+    printf("ID: %d Name: %s\n", b.id, b.name);
+    return 0;
+}
