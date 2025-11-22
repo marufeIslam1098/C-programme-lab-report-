@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+struct Student {
+    int id;
+    int age;
+};
+
+int main() {
+    struct Student s[3], temp;
+
+    for(int i=0; i<3; i++) {
+        printf("ID: ");
+        scanf("%d", &s[i].id);
+        printf("Age: ");
+        scanf("%d", &s[i].age);
+    }
+
+    for(int i=0; i<3; i++)
+        for(int j=i+1; j<3; j++)
+            if(s[i].age > s[j].age) {
+                temp = s[i];
+                s[i] = s[j];
+                s[j] = temp;
+            }
+
+    printf("\nSorted by age:\n");
+    for(int i=0; i<3; i++)
+        printf("ID: %d Age: %d\n", s[i].id, s[i].age);
+
+    return 0;
+}
