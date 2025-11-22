@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main() {
+    if(chmod("test.txt", 0444) == 0)
+        printf("File is now read-only.\n");
+    else
+        printf("Failed.\n");
+    return 0;
+}
