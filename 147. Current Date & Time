@@ -1,0 +1,8 @@
+#include <stdio.h>
+#include <time.h>
+int main(){
+    char s[40];
+    time_t t=time(NULL);
+    strftime(s,40,"%Y-%m-%d %H:%M:%S",localtime(&t));
+    printf("%s",s);
+}
