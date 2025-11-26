@@ -1,0 +1,6 @@
+#include <stdio.h>
+int main(){
+    // int x = 5/0;   // runtime error
+    // int *p=NULL; *p=5; // runtime error
+    printf("Runtime error examples commented.\n");
+}
