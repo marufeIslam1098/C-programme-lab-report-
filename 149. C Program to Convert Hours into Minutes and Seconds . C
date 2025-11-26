@@ -1,0 +1,5 @@
+#include <stdio.h>
+int main(){
+    float h; scanf("%f",&h);
+    printf("Min=%.2f Sec=%.2f",h*60,h*3600);
+}
